@@ -1,0 +1,12 @@
+---
+applications:
+- name: CustomerService
+  memory: 512M
+  instances: 1
+  host: CustomerService
+  domain: de.a9sapp.eu
+  path: .
+  services:
+  - my_mysql
+  env:
+    RAILS_ENV: production
