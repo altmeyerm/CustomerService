@@ -5,21 +5,23 @@
 #   gem 'sqlite3'
 #
 default: &default
-    adapter: mysql2
-    encoding: utf8
-    reconnect: false
+    adapter: sqlite3
     pool: 5
-    username: root
-    password: 
+    timeout: 5000
 
 development:
-    <<: *default
-    database: customerservice_development
+   <<: *default
+   database: db/development.sqlite3
 
 test:
     <<: *default
-    database: customerservice_test
+    database: db/development.sqlite3
 
 production:
-    <<: *default
-    database: customerservice_production
+   adapter: mysql2
+   encoding: utf8
+   reconnect: false
+   pool: 5
+   username: root
+   password:
+   database: customerservice_production
