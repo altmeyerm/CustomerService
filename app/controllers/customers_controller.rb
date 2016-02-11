@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :update, :destroy]
-
+  before_action :doorkeeper_authorize!
+  
   # GET /customers
   # GET /customers.json
   def index
